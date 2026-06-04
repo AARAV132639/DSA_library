@@ -4,10 +4,7 @@ using namespace std;
 
 class MinHeap{
     
-    private: vector<int>heap;
-
-    public:
-
+ private: vector<int>heap;
     // Inserting operations;
     /*
     - Put element at end
@@ -29,11 +26,54 @@ class MinHeap{
         }
     }
 
-    //Insert
-    void insert (int value)
+    //Heapify down
+    void heapifyDown(int index)
+    {
+        int n = heap.size();
+
+        while(true)
+        {
+            int left= 2*index+1;
+            int right= 2*index+2; 
+
+            int smallest= index;
+
+            if(left<n&&heap[left]<heap[smallest]) smallest= left;
+
+            if(right<n && heap[right]<heap[smallest]) smallest= right;
+
+            if(smallest==index) break;
+
+            swap(heap[index], heap[smallest]);
+            index= smallest;
+        }
+    }
+
+    
+ public:
+    void insert(int value)
     {
         heap.push_back(value);
         heapifyUp(heap.size()-1);
+
+    }
+
+    int top()
+    {
+        return heap[0];
+    }
+
+    int extractMin()
+    {
+        int minValue= heap[0];
+
+        heap[0]= heap.back();
+
+        heap.pop_back();
+
+        if(!heap.empty()) heapifyDown(0);
+
+        return minValue;
     }
 
     //display function
@@ -52,6 +92,9 @@ int main()
     h.insert(5);
     h.insert(20);
     h.insert(2);
+
+    cout<<h.top()<<endl;
+    cout<<h.extractMin()<<endl;
 
     h.display();
 
