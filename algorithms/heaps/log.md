@@ -5,3 +5,4 @@
 4. Heapify down [done]
 
 5. Build Heap [done]
+6. Heap sort [done]

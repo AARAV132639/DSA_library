@@ -86,3 +86,26 @@
 - Only a few nodes near root can move many level. 
 
 - Hence total work becomes O(n)
+
+## Heap day 4: heap sort
+
+### Using Min Heap
+
+- Uses extra space
+
+- Process: 
+            o Build Min heap
+
+            o While heap not empty:
+                                    - Extract Min
+                                    - Store answer
+
+- Time complexity: Build heap O(n), Extract min n times: n x O(log n). Hence, O(n log n)
+
+### Using Max Heap
+
+- Real heap sort (in place)
+
+- Uses a max heap. Because largest element belongs at the end.
+
+- Heap sort is actually combining: Array+ complete binary tree + heap property + divide and conquer(heapify recursion)
