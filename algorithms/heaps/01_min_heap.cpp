@@ -48,9 +48,20 @@ class MinHeap{
             index= smallest;
         }
     }
-
     
  public:
+
+    //build heap algorithm
+
+    void buildHeap(vector<int>&arr)
+    {
+        heap = arr;
+
+        int n= heap.size();
+
+        for(int i= n/2-1;i>=0;i--) heapifyDown(i);
+    }
+
     void insert(int value)
     {
         heap.push_back(value);
@@ -88,6 +99,7 @@ int main()
 {
     MinHeap h;
 
+    
     h.insert(10);
     h.insert(5);
     h.insert(20);
@@ -96,6 +108,12 @@ int main()
     cout<<h.top()<<endl;
     cout<<h.extractMin()<<endl;
 
+    h.display();
+    
+
+    vector<int>arr = { 10,5,20,2,8,12,1};
+
+    h.buildHeap(arr);
     h.display();
 
 }

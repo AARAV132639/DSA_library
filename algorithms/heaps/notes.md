@@ -60,7 +60,29 @@
 
 ### Final take away
 
-1. Insert: heapify up mechanism
+1. Insert: heapify up mechanism. But each inser costs O(log n)
 2. Extract Min: heapify down mechanism
 
 - Every heap problem in Top-k, Streaking, Merge-K, Scheduling, Meeting rooms is ultimately built on these two operations
+
+## Heap day 3: Build heap [heapify an entire array]
+
+1. We have built an heap using Insert function but the insert costs: O(log n). Thus, n instertions = O(n log n).
+
+2. What is someone gives us an entire array? Can we convert it into a heap faster? yes, in O(n) using build heap.
+
+3. Key Observation: Leaf nodes are already heaps. A single node always satisfies heap property, thus start from last non-leaf node.
+
+4. Last non leaf node: (n/2)-1
+
+5. Build heap algorithm [ Floyd's Heap Construction Algorithm]
+
+### Why it works in O(n) not in O(log n)?
+
+- Most nodes are near leaves
+
+- Near leaves, heapifyDown moves very little
+
+- Only a few nodes near root can move many level. 
+
+- Hence total work becomes O(n)
